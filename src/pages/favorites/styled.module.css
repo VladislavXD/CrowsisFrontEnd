@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap');
+
+.favorite{
+    width: 1050px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.favorite_wraper{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    min-height: 500px;
+    flex-wrap: wrap;
+}
+
+
+.favorite_category{
+    display: block;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.category_title{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 45px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    width: 100%;
+}
+
+.category_filter{
+    width: 300px;
+    height: 200px;
+    background: #dddddd;
+    border-radius: 1px;
+}
+
+.category_filter{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    width: 390px;
+    height: 200px;
+    border-radius: 20px;
+    padding: 30px;
+}
+.filter_title{
+    width: 100%;
+    display: inline-flex;
+    
+    font-size: 30px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: normal;
+    opacity: .8;
+}
+
+.favorite_brand{
+    font-size: 15px;
+    margin-right: 5px;
+}

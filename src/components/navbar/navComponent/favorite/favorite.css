@@ -1,0 +1,51 @@
+.fav_icon{
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-weight: 300;
+    
+}
+.favorite{
+    position: relative;
+}
+
+.fav_ico{
+    font-size: 28px;
+}
+.fav_log{
+    font-size: 28px;
+}
+.basket_fav{
+    font-size: 28px;
+}
+.fav_icon:hover{
+    color: blue;
+}
+.fav__text{
+    font-size: 15px;
+}
+.log_text{
+    font-size: 15px;
+}
+.basket_text{
+    font-size: 15px;
+}
+.num{
+    position: absolute;
+    right: 20%;
+    top: -10px;
+    font-size: 15px;
+    z-index: 99;
+    color: rgb(255, 255, 255);
+    background: rgb(255, 112, 112);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

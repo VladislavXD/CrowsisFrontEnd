@@ -1,0 +1,22 @@
+.product{
+    width: 1050px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.product_wraper{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    margin-top: 85px;
+}
+
+.test{
+    position: absolute;
+    left: 20%;
+    top: 30%;
+    font-size: 50px;
+    opacity: .5;
+    border-right: 1px solid black;
+}
