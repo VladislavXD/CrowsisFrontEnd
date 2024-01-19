@@ -12,4 +12,4 @@ instance.interceptors.request.use( (config)=> {
 })
 
 
-export default instance;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
+export default instance;
