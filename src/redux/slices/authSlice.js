@@ -17,7 +17,11 @@ export const fetchAuthMe = createAsyncThunk('auth/fetchUserMe', async()=>{
 })
 
 
+// Функция для получения значения из localStorage
+const getStoredUserName = () => localStorage.getItem('userName');
 
+// Функция для установки значения в localStorage
+const setStoredUserName = (userName) => localStorage.setItem('userName', userName);
 
 
 
@@ -26,7 +30,7 @@ export const fetchAuthMe = createAsyncThunk('auth/fetchUserMe', async()=>{
 const initialState = {
     data: null,
     status: 'loading',
-    userName: '',
+    userName: getStoredUserName() || '', // Используем значение из localStorage
 };
 
 
@@ -37,10 +41,11 @@ const authSlice = createSlice({
     reducers: {
         logout: (state)=>{
             state.data = null;
-            state.userName = '';
+            localStorage.removeItem('userName'); // Удаляем из localStorage при выходе
         },
         setUserName: (state, action) => {
             state.userName = action.payload;
+            setStoredUserName(action.payload); // Сохраняем в localStorage
         },
     },
     extraReducers:(builder) => {

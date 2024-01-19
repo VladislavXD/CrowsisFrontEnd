@@ -16,7 +16,7 @@ const Basket = () => {
                     </a>
                     {cartOpen && (
                         <div className="shop_cart">
-                            <div className="cart_content"></div>
+                            <div className="cart_content">Скоро...</div>
                             <span className='cart_text_top'>
                                 <span className='summ_text summ'>Сумма</span>
                                 <strong className='summ'> 0 сумм </strong>
