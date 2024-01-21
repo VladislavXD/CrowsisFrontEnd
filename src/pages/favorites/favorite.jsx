@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styled.module.css';
-import ProductCard from '../../components/product/productCard';
+import ProductCard from '../../components/CardBlock/productCard';
 import { useSelector } from 'react-redux';
 import ShowChek from '../../components/showCase/showChek';
 

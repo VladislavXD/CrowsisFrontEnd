@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import './styles/reset.css'
 import Nav from './components/navbar/nav';
 import { Routes, Route } from 'react-router-dom';
-import ProductShop from './pages/productShop/ProductShop'
+import ProductShop from './pages/MainPage/MainPage'
 import Favorite from './pages/favorites/favorite';
 import SignIn from './pages/signIn/Login';
 import { useDispatch, useSelector } from 'react-redux';

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { PRODUCTS } from '../../DataListProduct/products'
-import ProductCard from '../../components/product/productCard'
+import ProductCard from '../../components/CardBlock/productCard'
 import styles from './styles.module.css'
 import ShowChek from '../../components/showCase/showEmpty'
 

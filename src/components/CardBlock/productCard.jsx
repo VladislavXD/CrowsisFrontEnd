@@ -44,19 +44,22 @@ const ProductCard = ({ id, img, title, price, discount }) => {
               alt="product"
             />
           </a>
-          {
-            onLike ? (
-              <GoHeartFill
+          <GoHeartFill
               className={`${styled.heart} ${id} ${favorites.some((product) => product.id === id) && styled.active} ${onLike ? 'active' : ''}`}
               onClick={handleLikeClick}
             />
-            ) : (
-              <FaRegHeart
-            className={`${styled.heart} ${id} ${favorites.some((product) => product.id === id) && styled.active} ${onLike ? 'active' : ''}`}
-            onClick={handleLikeClick}
-          />
-            )
-          }
+          {/* {
+            onLike ? ( 
+              
+              ////
+          //   ) : (
+          //     <FaRegHeart
+          //   className={`${styled.heart} ${id} ${favorites.some((product) => product.id === id) && styled.active} ${onLike ? 'active' : ''}`}
+          //   onClick={handleLikeClick}
+          // />
+          //   )
+          // }*/}
+          <heart/>
 
           <div className={styled.card__label}>-{discount}%</div>
         </div>

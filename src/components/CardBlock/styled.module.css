@@ -16,6 +16,15 @@ a{
     background: #ececec;
     
   }
+
+  .skeletonCard{
+    margin-left: 30px;
+    margin-top: 30px; 
+  }
+
+  .skeletonCard
+
+
   
   /* При наведении на карточку - меняем цвет тени */
   .card:hover {
@@ -159,11 +168,14 @@ a{
     right: 0;
     top: 0;
     z-index: 98;
-    color: rgb(90, 90, 90);
+    color: rgb(0, 0, 0);
     transition: .2s;
+    text-shadow: 0 0 10px black;
 }
+
 .heart:hover{
-    color: #333333;
+    color: #1e27a1;
+    transform: scale(1.3);
 }
 .heart.active{
     color: red;
