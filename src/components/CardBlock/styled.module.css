@@ -167,7 +167,7 @@ a{
     position: absolute;
     right: 0;
     top: 0;
-    z-index: 98;
+    z-index: 2;
     color: rgb(0, 0, 0);
     transition: .2s;
     text-shadow: 0 0 10px black;
