@@ -6,16 +6,24 @@ import { addToFavorites, removeFromFavorites } from '../../redux/slices/Favorite
 import { useDispatch, useSelector } from 'react-redux';
 import ShowAdd from '../showCase/showAdd';
 import ShowRemove from '../showCase/showRemove';
-
+import { addToBasket } from '../../redux/slices/BasketSlice';
+import { v4 as uuidv4 } from 'uuid';
 
 
 const ProductCard = ({ id, img, title, price, discount }) => {
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favorites.list);
+  const basket = useSelector((state)=> state.basket.list);
 
   const isProductInFavorites = favorites.some((product) => product.id === id);
+  
 
-  const handleLikeClick = () => {
+  const handleClickBasket = ()=>{
+      dispatch(addToBasket({ id, img, title, price, discount}));
+    
+  }
+
+  const handleClickFavorite = () => {
     if (isProductInFavorites) {
       dispatch(removeFromFavorites(id));
     } else {
@@ -33,6 +41,8 @@ const ProductCard = ({ id, img, title, price, discount }) => {
   const [onShow, setOnShow] = useState(false);
   const [onLike, setOnLike] = useState(false);
 
+
+  const priceDiscount = price - (price / 100 * discount);
   return (
     <>
       {onShow && (isProductInFavorites ? <ShowAdd /> : <ShowRemove />)}
@@ -46,7 +56,7 @@ const ProductCard = ({ id, img, title, price, discount }) => {
           </a>
           <GoHeartFill
               className={`${styled.heart} ${id} ${favorites.some((product) => product.id === id) && styled.active} ${onLike ? 'active' : ''}`}
-              onClick={handleLikeClick}
+              onClick={handleClickFavorite}
             />
           {/* {
             onLike ? ( 
@@ -66,15 +76,15 @@ const ProductCard = ({ id, img, title, price, discount }) => {
 
         <div className={styled.card__bottom}>
           <div className={styled.card__prices}>
-            <div className={`${styled.card__price} ${styled.card__price__discount}`}>{price - (price / 100 * discount)}</div>
+            <div className={`${styled.card__price} ${styled.card__price__discount}`}>{priceDiscount}</div>
             <div className={`${styled.card__price} ${styled.card__price__common}`}>{price}</div>
           </div>
           <a href="#" className={styled.card__title}>
             {title}
           </a>
           <button
-            className={`${styled.card__add} ${id} ${favorites.some((product) => product.id === id) && styled.active}`}
-            onClick={handleLikeClick}
+            className={`${styled.card__add} ${id}`}
+            onClick={handleClickBasket}
           >
             В корзину
           </button>
@@ -84,4 +94,6 @@ const ProductCard = ({ id, img, title, price, discount }) => {
   );
 };
 
+
+  
 export default ProductCard;

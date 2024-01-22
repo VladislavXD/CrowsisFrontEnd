@@ -1,0 +1,57 @@
+.card_basket_wrapper {
+    background: rgb(248, 248, 248);
+    padding: 5px 8px 25px;
+    max-height: 325px;
+    overflow: auto;
+}
+
+.cart_trash{
+    cursor: pointer;
+    font-size: 20px;
+    transition: .2s;
+}
+.cart_trash:hover{
+    color: red;
+}
+
+
+
+.item_cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    padding: 8px 13px;
+    background: #ffffff;
+    margin: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 6px 12px -1px rgba(124, 124, 124, 0.2);
+    -moz-box-shadow: 0px 6px 12px -1px rgba(124, 124, 124, 0.2);
+    box-shadow: 0px 6px 12px -1px rgba(124, 124, 124, 0.2);
+}
+
+.cart_content{
+    padding-right: 100px;
+    text-align: start;
+}
+
+.cart_title{
+    color: #000000;
+    font-weight: 700;
+    font-size: 18px;
+    white-space: nowrap; /* Отменяем перенос текста */
+    overflow: hidden; /* Обрезаем содержимое */
+    padding: 5px; /* Поля */
+    text-overflow: ellipsis; 
+    width: 130px;
+
+}
+.cart_price{
+    color: blue;
+}
+
+.cart_image {
+    width: 70px;
+    height: 66px;
+    border-radius: 10px;
+}

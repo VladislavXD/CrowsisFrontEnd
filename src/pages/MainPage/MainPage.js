@@ -5,6 +5,7 @@ import styles from './styles.module.css'
 import ShowChek from '../../components/showCase/showEmpty'
 import CardLoader from '../../components/CardBlock/Skeleton'
 import { Suspense } from 'react'
+import { CarCrash } from '@mui/icons-material'
 
 
 
@@ -22,11 +23,16 @@ const ProductShop = ({ searchValue }) => {
         return a.title.localeCompare(b.title)
     })
 
+//Виртуальная задержка для вывода скелетона
+    useEffect(() => {
+        const timeOut = setTimeout(()=>{
+            setIsLoad(false);
+        }, 2000);
 
-    // useEffect(() => {
-    //     // Фильтрация товаров на основе поискового запроса
+        return ()=> clearTimeout(timeOut);
+        // Фильтрация товаров на основе поискового запроса
 
-    // }, [filtered]);
+    }, [filtered]);
 
 
 
@@ -37,25 +43,22 @@ const ProductShop = ({ searchValue }) => {
             <div className={styles.test}>Скоро</div>
             <div className={styles.product}>
                 {filteredProduct.length > 0 ?
-                    <Suspense fallback={<CardLoader />}>
+                isLoad ? [...new Array(8)].map((_, i) => <CardLoader key={i}/>) :
+                    filteredProduct.map((item, index) => {
+                        return (
 
-                        {
-                            filteredProduct.map((item, index) => {
-                                return (
+                            <ProductCard
+                                key={index}
+                                id={index}
+                                img={item.img}
+                                title={item.title.trim()}
+                                price={item.price}
+                                discount={item.discount}
+                            />
 
-                                    <ProductCard
-                                        key={index}
-                                        id={index}
-                                        img={item.img}
-                                        title={item.title.trim()}
-                                        price={item.price}
-                                        discount={item.discount}
-                                    />
+                        )
+                    })
 
-                                )
-                            })
-                        }
-                    </Suspense>
 
                     : <ShowChek />
                 }
