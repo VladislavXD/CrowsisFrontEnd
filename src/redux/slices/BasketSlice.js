@@ -9,7 +9,8 @@ const basketSlice = createSlice({
     },
     reducers: {
         addToBasket: (state, action) => {
-            state.list = [...state.list, action.payload]
+            // const findItem = state.list.find((obj) => obj.id == action.payload.id)
+            state.list.push(action.payload);
             state.totalPrice = state.list.reduce((sum, obj)=>{
                 return obj.price + sum;
             }, 0);

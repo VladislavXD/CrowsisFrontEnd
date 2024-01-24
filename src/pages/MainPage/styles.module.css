@@ -20,3 +20,41 @@
     opacity: .5;
     border-right: 1px solid black;
 }
+
+
+@media (max-width: 720px){
+    .test{
+        display: none;
+    }
+    .search_bar{
+        width: 100% !important;
+    }
+    .form{
+        width: 100% !important;
+    }
+    .product{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 0 !important;
+        gap: 30 !important;
+    }
+}
+
+@media (max-width: 991px){
+    .product{
+        gap: 60px;
+        padding: 0 60px;
+    }
+}
+
+@media (max-width: 575px){
+    .product{
+        gap: 0px;
+        padding: 0 20px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

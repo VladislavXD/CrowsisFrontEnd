@@ -10,6 +10,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchAuthMe, selectIsAuth } from './redux/slices/authSlice';
 import Register from './pages/register/Register';
 import './styles/style.media.css'
+import LabelBottomNavigation from './components/navbar/BottomNav';
+
+
 
 
 function App() {
@@ -17,8 +20,8 @@ function App() {
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
 
-  React.useEffect(()=>{
-    dispatch (fetchAuthMe());
+  React.useEffect(() => {
+    dispatch(fetchAuthMe());
   }, []);
 
 
@@ -26,6 +29,7 @@ function App() {
     <div className="App">
 
       <Nav setSearchValue={setSearchValue} />
+      <LabelBottomNavigation/>
       <Routes>
         <Route path="/" element={<ProductShop searchValue={searchValue} />} />
         <Route path="/singIn" element={<SignIn />} />

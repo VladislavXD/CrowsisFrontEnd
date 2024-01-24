@@ -7,19 +7,28 @@ import { useDispatch, useSelector } from 'react-redux';
 import ShowAdd from '../showCase/showAdd';
 import ShowRemove from '../showCase/showRemove';
 import { addToBasket } from '../../redux/slices/BasketSlice';
-import { v4 as uuidv4 } from 'uuid';
+
 
 
 const ProductCard = ({ id, img, title, price, discount }) => {
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favorites.list);
-  const basket = useSelector((state)=> state.basket.list);
+  const basket = useSelector((state) => state.basket.list);
 
   const isProductInFavorites = favorites.some((product) => product.id === id);
-  
+  const isProductInBasket = basket.some((product) => product.id === id);
 
-  const handleClickBasket = ()=>{
-      dispatch(addToBasket({ id, img, title, price, discount}));
+
+  const handleClickBasket = () => {
+    if (!isProductInBasket) {
+      dispatch(addToBasket({ id, img, title, price, discount }));
+    }
+    else{
+      setOnShowbasket( 'Вы уже добавили данный товар');
+      setTimeout(() => {
+        setOnShowbasket('');
+      }, 2000);
+    }
     
   }
 
@@ -31,21 +40,28 @@ const ProductCard = ({ id, img, title, price, discount }) => {
     }
 
     setOnLike(!onLike);
-    setOnShow(true);
+    setOnShowFavorite(true);
 
     setTimeout(() => {
-      setOnShow(false);
+      setOnShowFavorite(false);
     }, 2000);
   };
-
-  const [onShow, setOnShow] = useState(false);
+  //onShowNotification
+  const [onShowFavorite, setOnShowFavorite] = useState(false);
   const [onLike, setOnLike] = useState(false);
+  const [onShowBasket, setOnShowbasket] = useState('');
 
 
+  //Notification
+  const FavoriteAdd = 'Добавленно в избранное';
+  const FavoriteRemove = 'Удалено из избранного';
+  
   const priceDiscount = price - (price / 100 * discount);
   return (
     <>
-      {onShow && (isProductInFavorites ? <ShowAdd /> : <ShowRemove />)}
+      {onShowFavorite &&  (isProductInFavorites ? <ShowAdd props={FavoriteAdd}/> : <ShowRemove props={FavoriteRemove}/>)}
+      {onShowBasket && (<ShowAdd props={onShowBasket}/>)}
+
       <div className={`${styled.card} `}>
         <div className={styled.card__top}>
           <a href="#" className={styled.card__image}>
@@ -55,9 +71,9 @@ const ProductCard = ({ id, img, title, price, discount }) => {
             />
           </a>
           <GoHeartFill
-              className={`${styled.heart} ${id} ${favorites.some((product) => product.id === id) && styled.active} ${onLike ? 'active' : ''}`}
-              onClick={handleClickFavorite}
-            />
+            className={`${styled.heart} ${id} ${favorites.some((product) => product.id === id) && styled.active} ${onLike ? 'active' : ''}`}
+            onClick={handleClickFavorite}
+          />
           {/* {
             onLike ? ( 
               
@@ -69,7 +85,7 @@ const ProductCard = ({ id, img, title, price, discount }) => {
           // />
           //   )
           // }*/}
-          <heart/>
+          <heart />
 
           <div className={styled.card__label}>-{discount}%</div>
         </div>
@@ -95,5 +111,5 @@ const ProductCard = ({ id, img, title, price, discount }) => {
 };
 
 
-  
+
 export default ProductCard;

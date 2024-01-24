@@ -6,7 +6,7 @@ import ShowChek from '../../components/showCase/showEmpty'
 import CardLoader from '../../components/CardBlock/Skeleton'
 import { Suspense } from 'react'
 import { CarCrash } from '@mui/icons-material'
-
+import styles from './styles.media.module.css'
 
 
 

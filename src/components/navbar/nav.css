@@ -18,8 +18,15 @@
     box-shadow: 0px 0px 10px -1px rgba(34, 60, 80, 0.17) inset;
 }
 
+
+
 .header {
     margin-bottom: 35px;
+    position: sticky !important;
+    top: 0 !important;
+    right: 0 !important;
+    z-index: 9999;
+    height: 80px !important;
 }
 
 .nav_bg {
@@ -40,8 +47,8 @@
 .header_top {
     text-align: center;
     background: #ffffff;
-    height: 80px;
-}  
+    height: 80px !important;
+}
 
 .search_bar {
     margin-left: 30px;
@@ -155,7 +162,22 @@
 }
 
 
-.profile_text{
+.profile_text {
     font-size: 15px !important;
     font-weight: 300 !important;
+}
+.container-fluid{
+    flex-wrap: nowrap !important;
+}
+
+.nav-body{
+    width: 100%;
+    display: flex;
+}
+
+.nav-bottom{
+    position: fixed;
+    max-width: 100%;
+    bottom: 0;
+    z-index: 999999;
 }
