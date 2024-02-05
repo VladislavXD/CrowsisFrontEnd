@@ -22,9 +22,6 @@ a{
     margin-top: 30px; 
   }
 
-  .skeletonCard
-
-
   
   /* При наведении на карточку - меняем цвет тени */
   .card:hover {
@@ -62,6 +59,7 @@ a{
     transform: scale(1.1);
     filter: blur(0);
   }
+
   
   /* Размещаем скидку на товар относительно изображения */
   .card__label {

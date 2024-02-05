@@ -1,11 +1,9 @@
 import React from "react"
 import ContentLoader from "react-content-loader"
-import styled from "./styled.module.css"
 
 
 const CardLoader = () => (
   <ContentLoader 
-    className={styled.skeletonCard}
     speed={2}
     width={225}
     height={380}

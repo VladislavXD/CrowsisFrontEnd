@@ -6,15 +6,9 @@ import ShowChek from "../../components/showCase/showEmpty";
 import CardLoader from "../../components/CardBlock/Skeleton";
 import { Suspense } from "react";
 import { CarCrash } from "@mui/icons-material";
-import "./swiper.css";
+import styles from "./styles.media.module.css";
 
-import "swiper/css";
-import "swiper/css/pagination";
-import { Swiper, SwiperSlide } from "swiper/react";
 
-import { Pagination, Autoplay } from "swiper/modules";
-
-import ProductSlider from "../../DataListContent/Data.productSlider";
 
 const ProductShop = ({ searchValue }) => {
   //Создание loadera
@@ -39,50 +33,10 @@ const ProductShop = ({ searchValue }) => {
     // Фильтрация товаров на основе поискового запроса
   }, [filtered]);
 
-  fetch("https://fakestoreapi.com/products")
-    .then((res) => res.json())
-    .then((json) => console.log(json));
-
-  fetch("https://fakestoreapi.com/products", {
-    method: "POST",
-    body: JSON.stringify({
-      title: "test",
-      price: 13.5,
-      description: "test set",
-      image: "https://i.pravatar.cc",
-      category: "electronic",
-    }),
-  })
-    .then((res) => res.json())
-    .then((json) => console.log(json));
   return (
     <>
-      <Swiper
-        autoplay={{ delay: 7000, disableOnInteraction: false }}
-        pagination={{ clickable: true }}
-        modules={[Pagination, Autoplay]}
-        className="mySwiper"
-      >
-        {ProductSlider.map((productSwipe) => {
-          return (
-            <>
-              <SwiperSlide>
-                <img src={productSwipe.image} />
-                <div className="swiper_promo">
-                  <span className="promo_title">{productSwipe.title}</span>
-                  <button className="promo_btn">
-                    <a href={productSwipe.link} className="promo_text">
-                      {" "}
-                      Посмотреть{" "}
-                    </a>
-                  </button>
-                </div>
-              </SwiperSlide>
-            </>
-          );
-        })}
-      </Swiper>
       <div className={styles.product_wraper}>
+        <div className={styles.test}>Скоро</div>
         <div className={styles.product}>
           {filteredProduct.length > 0 ? (
             isLoad ? (

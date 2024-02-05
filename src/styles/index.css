@@ -1,17 +1,13 @@
 
 
-.App {
-    max-width: 1440px;
-    margin: 0 auto;
-
-}
-
-
 .card {
     width: 190px;
     background: white;
     padding: .4em;
     border-radius: 6px;
+}
+.a{
+    
 }
 
 .card-image {

@@ -10,7 +10,7 @@ import { NavLink } from 'react-router-dom'
 
 
 
-const Login = () => {
+const Login = ({item}) => {
     // const [isLoginFormVisivle, setIsLoginFormVisivle] = useState(true);
 
     // const isAuts = useSelector(selectIsAuth);
@@ -48,9 +48,9 @@ const Login = () => {
     return (
         <div>
             
-            <NavLink to="/singIn" className='headerLogin '>
+            <NavLink to='/auth' className='headerLogin '>
                 <FaUser className='fav_log' />
-                <span className='log_text'>Войти</span>
+                <span className='log_text'>Авторизация</span>
             </NavLink>
             
         </div>

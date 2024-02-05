@@ -1,8 +1,11 @@
 .logo {
-    width: 200px;
-    height: 100px;
+    width: 190px;
+    height: 80px;
 }
 
+ul {
+    margin-bottom: 0 !important;
+}
 
 .burger {
     margin-right: 10px;
@@ -21,12 +24,14 @@
 
 
 .header {
-    margin-bottom: 35px;
     position: sticky !important;
     top: 0 !important;
     right: 0 !important;
     z-index: 9999;
     height: 80px !important;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .nav_bg {
@@ -35,10 +40,10 @@
     height: 80px;
     left: 0;
     top: 0;
-    z-index: -1;
+    z-index: 3;
     background: #ffffff;
-    -webkit-box-shadow: 0px 10px 30px rgba(209, 213, 223, .5);
-    box-shadow: 0px 10px 30px rgba(209, 213, 223, .5);
+    /* -webkit-box-shadow: 0px 10px 30px rgba(209, 213, 223, .5);
+    box-shadow: 0px 10px 30px rgba(209, 213, 223, .5); */
 }
 
 
@@ -166,18 +171,73 @@
     font-size: 15px !important;
     font-weight: 300 !important;
 }
-.container-fluid{
+
+.container-fluid {
     flex-wrap: nowrap !important;
 }
 
-.nav-body{
+.nav-body {
     width: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.nav-bottom{
+.nav-bottom {
     position: fixed;
     max-width: 100%;
     bottom: 0;
     z-index: 999999;
+}
+
+
+/* SubNav */
+
+.sub-Header {
+    min-height: 50px;
+    background: #383b47;
+    color: white;
+}
+
+.subHeader-wraper {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    gap: 30px;
+}
+
+.subHeader_category_item {
+    padding: 18px 40px;
+    height: 100%;
+    font-weight: 500;
+    
+
+}
+
+.subHeader_category_item.active {
+    background: #0d7377;
+}
+
+.subHeader_category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.sub_nav-item {
+    color: #eeeeee;
+    line-height: 14px;
+    font-size: 16px;
+    transition: .3s;
+    margin-left: 6px;
+}
+
+
+.subHeader_item_text {
+    color: #eeeeee;
+    line-height: 14px;
+    font-size: 16px;
+    transition: .3s;
 }

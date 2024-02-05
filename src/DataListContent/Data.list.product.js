@@ -205,6 +205,6 @@ const PRODUCTS = [
 
 ]
 
-const FAVORITE = [];
 
-export {PRODUCTS, FAVORITE}
+
+export {PRODUCTS}
