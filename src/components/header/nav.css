@@ -242,9 +242,7 @@ ul {
     transition: .3s;
 }
 
-.subHeader_category_item:hover::after{
-    content: 'test'
-}
+
 
 
 .breadcrembs{
