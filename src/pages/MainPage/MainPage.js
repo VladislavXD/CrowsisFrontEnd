@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { PRODUCTS } from "../../DataListContent/Data.list.product";
+
 import ProductCard from "../../components/CardBlock/productCard";
 import styles from "./styles.module.css";
 import ShowChek from "../../components/showCase/showEmpty";
@@ -16,45 +16,46 @@ import { Pagination, Autoplay } from "swiper/modules";
 
 import ProductSlider from "../../DataListContent/Data.productSlider";
 
+
+import axios from "axios";
+import { Link } from "react-router-dom";
+
 const ProductShop = ({ searchValue }) => {
   //Создание loadera
   const [isLoad, setIsLoad] = useState(true);
 
+  const [products, setProducts] = useState([]);
+  const [category, setCategory] = useState([]);
+
+
+  useEffect( ()=>{
+      axios.get('http://localhost:5000/catalog').
+      then(({data})=>{
+        setProducts(data)
+        setIsLoad(false)
+        
+      })
+      .catch((err)=>{
+        console.log(err)
+        
+      })
+
+      
+       
+  }, [])
+
   //фильтрация продукта для поискового запроса
-  const filtered = PRODUCTS.filter((item) =>
+  const filtered = products.filter((item) =>
     item.title.toLowerCase().trim().includes(searchValue.toLowerCase().trim())
   );
+
   //фильтрация по алфавиту
-  const filteredProduct = filtered.sort((a, b) => {
-    return a.title.localeCompare(b.title);
-  });
+  // const filteredProduct = filtered.sort((a, b) => {
+  //   return a.title.localeCompare(b.title);
+  // });
 
-  //Виртуальная задержка для вывода скелетона
-  useEffect(() => {
-    const timeOut = setTimeout(() => {
-      setIsLoad(false);
-    }, 2000);
+ 
 
-    return () => clearTimeout(timeOut);
-    // Фильтрация товаров на основе поискового запроса
-  }, [filtered]);
-
-  fetch("https://fakestoreapi.com/products")
-    .then((res) => res.json())
-    .then((json) => console.log(json));
-
-  fetch("https://fakestoreapi.com/products", {
-    method: "POST",
-    body: JSON.stringify({
-      title: "test",
-      price: 13.5,
-      description: "test set",
-      image: "https://i.pravatar.cc",
-      category: "electronic",
-    }),
-  })
-    .then((res) => res.json())
-    .then((json) => console.log(json));
   return (
     <>
       <Swiper
@@ -71,10 +72,10 @@ const ProductShop = ({ searchValue }) => {
                 <div className="swiper_promo">
                   <span className="promo_title">{productSwipe.title}</span>
                   <button className="promo_btn">
-                    <a href={productSwipe.link} className="promo_text">
+                    <Link to={productSwipe.link} className="promo_text">
                       {" "}
                       Посмотреть{" "}
-                    </a>
+                    </Link>
                   </button>
                 </div>
               </SwiperSlide>
@@ -82,13 +83,18 @@ const ProductShop = ({ searchValue }) => {
           );
         })}
       </Swiper>
+
+
+
       <div className={styles.product_wraper}>
         <div className={styles.product}>
-          {filteredProduct.length > 0 ? (
+          {//вывод preload при отсуствие товара
             isLoad ? (
-              [...new Array(8)].map((_, i) => <CardLoader key={i} />)
+              [...new Array(16)].map((_, i) => <CardLoader key={i} />)
             ) : (
-              filteredProduct.map((item, index) => {
+              //проверка наличия товаров на странице
+              filtered.length > 0 ? (
+              filtered.sort((a, b) => a.title.localeCompare(b.title)).map((item, index) => {
                 return (
                   <ProductCard
                     key={index}
@@ -100,10 +106,11 @@ const ProductShop = ({ searchValue }) => {
                   />
                 );
               })
+              ) : (
+                <ShowChek />
+              )
             )
-          ) : (
-            <ShowChek />
-          )}
+          }
         </div>
       </div>
     </>

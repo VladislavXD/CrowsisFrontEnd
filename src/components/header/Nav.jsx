@@ -19,8 +19,10 @@ const Nav = ({ setSearchValue }) => {
   const isAuts = useSelector(selectIsAuth);
   const [value, setvalue] = useState("");
 
-  const [smallScreen, setSmallScreen] = useState(window.innerWidth <= 720);
 
+
+
+  const [smallScreen, setSmallScreen] = useState(window.innerWidth <= 720);
   useEffect(() => {
     const handleSize = () => {
       setSmallScreen(window.innerWidth <= 720);
@@ -32,6 +34,8 @@ const Nav = ({ setSearchValue }) => {
       window.removeEventListener("resize", handleSize);
     };
   }, []);
+
+  
 
   return (
     <>

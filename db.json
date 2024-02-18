@@ -1,0 +1,278 @@
+{
+  "catalog": [
+    {
+      "id": 10,
+      "img": [
+        "https://www.jackmenn.ru/wp-content/uploads/2021/12/kupit-muzhskoe-palto-679x1024.jpg.webp",
+        "",
+        ""
+      ],
+      "title": "Пальто",
+      "price": 3500,
+      "discount": 15,
+      "category": "Coats",
+      "catalog" : "verkhyayaOdejda",
+      "sizes" : [
+        {
+          "id": 1,
+          "size": "XS",
+          "isStock": 5
+        },
+        {
+          "id": 2,
+          "size": "S",
+          "isStock": 8
+        },
+        {
+          "id": 3,
+          "size": "M",
+          "isStock": 10
+        }
+      ],
+      "review": [],
+      "brand": "Columbia",
+      "gender": "unisex"
+    },
+    {
+      "id": 11,
+      "img": [
+        "https://fabricafutbolok.ru/wp-content/uploads/tolstovka-amor-amor-amor-molochnaya.jpg",
+        "",
+        ""
+      ],
+      "title": "Толстовка",
+      "price": 2500,
+      "discount": 10,
+      "category": "sweatshirts",
+      "catalog" : "tolstovki",
+      "sizes" : [
+        {
+          "id": 1,
+          "size": "S",
+          "isStock": 15
+        },
+        {
+          "id": 2,
+          "size": "M",
+          "isStock": 20
+        },
+        {
+          "id": 3,
+          "size": "L",
+          "isStock": 18
+        }
+      ],
+      "review": [],
+      "brand": "Gap",
+      "gender": "woman"
+    },
+    {
+      "id": 12,
+      "img": [
+        "https://cdn.finnflare.com/upload/resize_cache/full_size/FAD/202/800_1200_2/FAD21115_202_50.jpg?cdn=1687288192",
+        "",
+        ""
+      ],
+      "title": "Кардиган",
+      "price": 1800,
+      "discount": 20,
+      "category": "cardigan",
+      "catalog" : "verkhyayaOdejda",
+      "sizes" : [
+        {
+          "id": 1,
+          "size": "S",
+          "isStock": 10
+        },
+        {
+          "id": 2,
+          "size": "M",
+          "isStock": 15
+        },
+        {
+          "id": 3,
+          "size": "L",
+          "isStock": 12
+        }
+      ],
+      "review": [],
+      "brand": "H&M",
+      "gender": "woman"
+    },
+    {
+      "id": 13,
+      "img": [
+        "https://basket-10.wbbasket.ru/vol1446/part144652/144652604/images/c516x688/1.webp",
+        "",
+        ""
+      ],
+      "title": "Поло",
+      "price": 1200,
+      "discount": 5,
+      "category": "Polo",
+      "catalog" : "futbolki",
+      "sizes" : [
+        {
+          "id": 1,
+          "size": "S",
+          "isStock": 20
+        },
+        {
+          "id": 2,
+          "size": "M",
+          "isStock": 25
+        },
+        {
+          "id": 3,
+          "size": "L",
+          "isStock": 30
+        }
+      ],
+      "review": [],
+      "brand": "Ralph Lauren",
+      "gender": "man"
+    },
+    {
+      "id": 14,
+      "img": [
+        "https://example.com/blouse.jpg",
+        "",
+        ""
+      ],
+      "title": "Блуза",
+      "price": 3000,
+      "discount": 15,
+      "category": "bluzka",
+      "catalog" : "djemperiCardigan",
+      "sizes" : [
+        {
+          "id": 1,
+          "size": "XS",
+          "isStock": 10
+        },
+        {
+          "id": 2,
+          "size": "S",
+          "isStock": 15
+        },
+        {
+          "id": 3,
+          "size": "M",
+          "isStock": 12
+        }
+      ],
+      "review": [],
+      "brand": "Guess",
+      "gender": "woman"
+    },
+    {
+      "id": 15,
+      "img": [
+        "https://example.com/jeans.jpg",
+        "",
+        ""
+      ],
+      "title": "Джинсы",
+      "price": 4000,
+      "discount": 20,
+      "category": "Jeans",
+      "catalog" : "djinsi",
+      "sizes" : [
+        {
+          "id": 1,
+          "size": 28,
+          "isStock": 5
+        },
+        {
+          "id": 2,
+          "size": 30,
+          "isStock": 8
+        },
+        {
+          "id": 3,
+          "size": 32,
+          "isStock": 10
+        }
+      ],
+      "review": [],
+      "brand": "Levi's",
+      "gender": "woman"
+    },
+    {
+      "id": 16,
+      "img": [
+        "https://example.com/jacket.jpg",
+        "",
+        ""
+      ],
+      "title": "Пиджак",
+      "price": 3000,
+      "discount": 20,
+      "category": "Jackets",
+      "catalog" : "pidjaki",
+      "sizes" : [
+        {
+          "id": 1,
+          "size": "S",
+          "isStock": 12
+        },
+        {
+          "id": 2,
+          "size": "M",
+          "isStock": 18
+        },
+        {
+          "id": 3,
+          "size": "L",
+          "isStock": 15
+        }
+      ],
+      "review": [],
+      "brand": "Tommy Hilfiger",
+      "gender": "woman"
+    },
+    {
+      "id": 17,
+      "img": [
+        "https://example.com/shorts.jpg",
+        "",
+        ""
+      ],
+      "title": "Шорты",
+      "price": 1000,
+      "discount": 5,
+      "category": "Shorts",
+      "catalog" : "shorts",
+      "sizes" : [],
+      "review": [],
+      "brand": "Gucci",
+      "gender": "unisex"
+    },
+    {
+      "id": 18,
+      "img": [
+        "https://example.com/scarf.jpg",
+        "",
+        ""
+      ],
+      "title": "Шарф",
+      "price": 7000,
+      "discount": 15,
+      "catalog" : "aksesuari",
+      "category": "Accessories",
+      "sizes" : [
+        {
+          "id": 1,
+          "size": "One Size",
+          "isStock": 8
+        }
+      ],
+      "review": [],
+      "brand": "Armani",
+      "gender": "man"
+    }
+  ]
+  
+  
+  
+}

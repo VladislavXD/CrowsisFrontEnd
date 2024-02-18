@@ -9,6 +9,10 @@
 
 }
 
+
+.favorite_icon{
+   font-size: 8rem;
+}
 .show_add{
     position: absolute;
     margin-top: 20px;
@@ -41,15 +45,21 @@
     transition: .3s;
 }
 
+.favorite_description{
+    font-weight: 400;
+    font-size: 18px;
+}
+
 .favorite_none{
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 38px;
-    opacity: .3;
-
+    font-size: 30px;
+    font-weight: bold;
+    flex-direction: column;
+    line-height: 15px;
 }
 
 .card_none{
@@ -62,3 +72,6 @@
     opacity: .3;
 
 }
+
+
+

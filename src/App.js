@@ -12,6 +12,8 @@ import Register from "./pages/register/Register";
 import "./styles/style.media.css";
 import MediaBottomNav from "./components/header/MediaBottomNav";
 import BreadcrumbsComponent from "./components/header/Breadcrumb";
+import Catalog from "./pages/Catalog/Catalog";
+import ProductCatalog from "./pages/Catalog/ProductCatalog";
 
 
 
@@ -38,6 +40,8 @@ function App() {
         <Route path="/auth" element={<SignIn />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/favorites" element={<Favorite />} />
+        <Route path="/catalog" element={<Catalog />} />
+        <Route path="/catalog/:catalog/:category?" element={<ProductCatalog />} />
       </Routes>
     </div>
   );

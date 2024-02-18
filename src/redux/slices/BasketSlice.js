@@ -23,7 +23,7 @@ const basketSlice = createSlice({
             const removedProduct = state.list.find(product => product.id === action.payload);
 
             state.list = state.list.filter(product => product.id !== action.payload);
-            state.totalPrice -= removedProduct.price;
+            state.totalPrice -= removedProduct.price;   
 
             localStorage.setItem('Basket', JSON.stringify(state.list))
             localStorage.setItem('totalPrice', JSON.stringify(state.totalPrice))

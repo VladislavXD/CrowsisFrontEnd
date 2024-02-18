@@ -1,0 +1,95 @@
+.catalog_title {
+    margin: 24px auto 20px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 40px;
+    color: #242424;
+}
+
+.card_box {
+    width: calc(33.3333333333% - 1.3333333333px);
+}
+
+.catalog_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+
+}
+
+.item_link {
+    display: block;
+    position: relative;
+    height: 0;
+    padding-bottom: 125%;
+    overflow: hidden;
+}
+
+.item_title {
+    font-size: 40px;
+    font-weight: 600;
+    transition: .4s ease-in-out;
+}
+
+.item_img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.item_content:hover .item_all {
+    transform: skew(-2deg) translate(1px, -13   px);
+    -webkit-transform: skew(-2deg) translate(1px, -13px);
+    -moz-transform: skew(-2deg) translate(1px, -13px);
+}
+
+.item_content:hover .item_name {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+}
+
+.item_content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 40px;
+    z-index: 1;
+    cursor: pointer;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    transition: .4s;
+}
+
+.item_content:hover {
+
+    background-color: rgba(0, 0, 0, .3019607843);
+}
+
+.item_name {
+    font-size: 40px;
+    font-weight: 600;
+    transition: .4s ease-in-out;
+
+}
+
+
+.item_all {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    border-bottom: 2px solid #fff;
+    transition: .4s ease-in-out 0.1s;
+}
