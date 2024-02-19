@@ -29,7 +29,7 @@ const ProductShop = ({ searchValue }) => {
 
 
   useEffect( ()=>{
-      axios.get('http://localhost:5000/catalog').
+      axios.get('https://65c11632dc74300bce8d48c0.mockapi.io/CrowsisProduct').
       then(({data})=>{
         setProducts(data)
         setIsLoad(false)
