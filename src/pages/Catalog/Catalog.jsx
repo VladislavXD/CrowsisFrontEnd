@@ -15,7 +15,7 @@ const Catalog = () => {
             {
               CatalogList.map((item, i) => {
                 return (
-                  <div className={style.card_box} >
+                  <div className={style.card_box} key={i}>
                     <Link key={item.id} to={item.link} className={style.item_link}>
                       <img src={item.img} alt="" className={style.item_img} />
                       <div class={style.item_content}>

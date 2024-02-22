@@ -31,24 +31,28 @@ const ProductCatalog = () => {
       </div>
       <div className={style.catalog_category}>
         {CatalogList.find(item => item.link === `/catalog/${catalog}`).categoris.map((category, i) => (
-          <div key={i} className={`${style.category} ${selectedCategory === category.en ? style.selected : ''}`}>
-            <Link to={`/catalog/${catalog}/${category.en}`}>{category.ru}</Link>
-          </div>
+          <Link key={i}
+            to={`/catalog/${catalog}/${category.en}`}
+            className={`${style.category} ${selectedCategory === category.en ? style.selected : ''}`}>
+            <div className={`${selectedCategory === category.en ? style.selected_text : ''}`} >{category.ru}</div>
+          </Link>
         ))}
       </div>
 
-      {products
-        .filter(item => item.catalog === catalog && (selectedCategory === 'all' || item.category === selectedCategory))
-        .map((product, index) => (
-          <ProductCard
-            id={index}
-            key={index}
-            img={product.img}
-            title={product.title.trim()}
-            price={product.price}
-            discount={product.discount}
-          />
-        ))}
+      <div className={style.catalog_wraper}>
+        {products
+          .filter(item => item.catalog === catalog && (selectedCategory === 'all' || item.category === selectedCategory))
+          .map((product, index) => (
+            <ProductCard
+              id={index}
+              key={index}
+              img={product.img}
+              title={product.title.trim()}
+              price={product.price}
+              discount={product.discount}
+            />
+          ))}
+      </div>
     </div>
   );
 };

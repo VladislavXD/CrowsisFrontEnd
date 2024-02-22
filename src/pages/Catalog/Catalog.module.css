@@ -93,3 +93,39 @@
     border-bottom: 2px solid #fff;
     transition: .4s ease-in-out 0.1s;
 }
+
+
+.catalog_wraper{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 0 80px;
+}
+
+
+.catalog_category{
+    display: flex;
+    color: #242424;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0 50px;
+    gap: 15px;
+}
+
+.category{
+     padding: 10px 13px;
+     background: #e7e7e7;
+     border-radius: 10px;
+     color: #242424;
+}
+
+.selected {
+    background: #505050;
+}
+
+.selected_text{
+    color: #fff;
+}

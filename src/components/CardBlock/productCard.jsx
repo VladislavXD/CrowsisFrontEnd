@@ -74,17 +74,6 @@ const ProductCard = ({ id, img, title, price, discount }) => {
             className={`${styled.heart} ${id} ${favorites.some((product) => product.id === id) && styled.active} ${onLike ? 'active' : ''}`}
             onClick={handleClickFavorite}
           />
-          {/* {
-            onLike ? ( 
-              
-              ////
-          //   ) : (
-          //     <FaRegHeart
-          //   className={`${styled.heart} ${id} ${favorites.some((product) => product.id === id) && styled.active} ${onLike ? 'active' : ''}`}
-          //   onClick={handleLikeClick}
-          // />
-          //   )
-          // }*/}
           <heart />
 
           <div className={styled.card__label}>-{discount}%</div>
@@ -113,3 +102,6 @@ const ProductCard = ({ id, img, title, price, discount }) => {
 
 
 export default ProductCard;
+
+
+

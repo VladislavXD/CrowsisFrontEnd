@@ -1,22 +1,17 @@
 import React, { useEffect, useState } from "react";
-
 import ProductCard from "../../components/CardBlock/productCard";
 import styles from "./styles.module.css";
 import ShowChek from "../../components/showCase/showEmpty";
 import CardLoader from "../../components/CardBlock/Skeleton";
-import { Suspense } from "react";
-import { CarCrash } from "@mui/icons-material";
 import "./swiper.css";
-
 import "swiper/css";
 import "swiper/css/pagination";
+
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import { Pagination, Autoplay } from "swiper/modules";
-
 import ProductSlider from "../../DataListContent/Data.productSlider";
 
-
+import productCardClone from "../../components/CardBlock/productCardClone";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -25,16 +20,15 @@ const ProductShop = ({ searchValue }) => {
   const [isLoad, setIsLoad] = useState(true);
 
   const [products, setProducts] = useState([]);
-  const [category, setCategory] = useState([]);
 
 
   useEffect( ()=>{
+    setIsLoad(true)
       axios.get('https://65c11632dc74300bce8d48c0.mockapi.io/CrowsisProduct').
       then(({data})=>{
         setProducts(data)
-        setIsLoad(false)
-        
       })
+      .then(()=> setIsLoad(false))
       .catch((err)=>{
         console.log(err)
         
@@ -84,13 +78,13 @@ const ProductShop = ({ searchValue }) => {
         })}
       </Swiper>
 
-
+        
 
       <div className={styles.product_wraper}>
         <div className={styles.product}>
           {//вывод preload при отсуствие товара
             isLoad ? (
-              [...new Array(16)].map((_, i) => <CardLoader key={i} />)
+              [...new Array(8)].map((_, i) => <CardLoader key={i} />)
             ) : (
               //проверка наличия товаров на странице
               filtered.length > 0 ? (
@@ -113,6 +107,7 @@ const ProductShop = ({ searchValue }) => {
           }
         </div>
       </div>
+      <productCardClone/>
     </>
   );
 };

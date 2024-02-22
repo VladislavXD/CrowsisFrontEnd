@@ -32,6 +32,10 @@ const CatalogList = [
       {
         ru:  'Ветровки',
         en: 'Windbreakers',
+      },
+      {
+        ru:  'Кардиган',
+        en: 'cardigan',
       }
     ]
   },

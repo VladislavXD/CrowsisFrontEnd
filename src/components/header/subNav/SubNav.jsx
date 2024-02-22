@@ -22,12 +22,11 @@ const SubHeader = () => {
             SubHeaderItem.map((item, i) => {
               return (
                 <ul className='subHeader_category'>
-                  <li className="subHeader_category_item ">
+                  <li className="subHeader_category_item">
                     <RxHamburgerMenu/>
                     <Link to={item.link} className="sub_nav-item" key={i}> {item.title} </Link>
                   </li>
                 </ul>
-
               )
             })
           }
