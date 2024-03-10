@@ -14,6 +14,7 @@ import MediaBottomNav from "./components/header/MediaBottomNav";
 import BreadcrumbsComponent from "./components/header/Breadcrumb";
 import Catalog from "./pages/Catalog/Catalog";
 import ProductCatalog from "./pages/Catalog/ProductCatalog";
+import Product from "./pages/ProductPage/Product";
 
 
 
@@ -42,6 +43,7 @@ function App() {
         <Route path="/favorites" element={<Favorite />} />
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/catalog/:catalog/:category?" element={<ProductCatalog />} />
+        <Route path="/catalog/:catalog/:category/:productId" element={<Product />} /> 
       </Routes>
     </div>
   );

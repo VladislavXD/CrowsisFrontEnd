@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "../../components/CardBlock/productCard";
-import styles from "./styles.module.css";
+import styles from './styles.module.css'
 import ShowChek from "../../components/showCase/showEmpty";
 import CardLoader from "../../components/CardBlock/Skeleton";
 import "./swiper.css";
@@ -54,10 +54,10 @@ const ProductShop = ({ searchValue }) => {
     <>
       <Swiper
         autoplay={{ delay: 7000, disableOnInteraction: false }}
-        pagination={{ clickable: true }}
+
         modules={[Pagination, Autoplay]}
         className="mySwiper"
-      >
+      > 
         {ProductSlider.map((productSwipe) => {
           return (
             <>
@@ -84,19 +84,21 @@ const ProductShop = ({ searchValue }) => {
         <div className={styles.product}>
           {//вывод preload при отсуствие товара
             isLoad ? (
-              [...new Array(8)].map((_, i) => <CardLoader key={i} />)
+              [...new Array(7)].map((_, i) => <CardLoader key={i} />)
             ) : (
               //проверка наличия товаров на странице
               filtered.length > 0 ? (
-              filtered.sort((a, b) => a.title.localeCompare(b.title)).map((item, index) => {
+              filtered.map((item, index) => {
                 return (
                   <ProductCard
                     key={index}
-                    id={index}
+                    id={item.id}
                     img={item.img}
                     title={item.title.trim()}
                     price={item.price}
                     discount={item.discount}
+                    catalog={item.catalog}
+                    category={item.category}
                   />
                 );
               })

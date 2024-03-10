@@ -11,6 +11,8 @@ const ProductCatalog = () => {
   const { catalog, category } = useParams();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const urlParams = useParams()
+  console.log(urlParams);
 
   const selectedCategory = category || 'all'; // Если категория не указана, выбираем все товары
 
@@ -50,6 +52,8 @@ const ProductCatalog = () => {
               title={product.title.trim()}
               price={product.price}
               discount={product.discount}
+              catalog={product.catalog}
+              category={product.category}
             />
           ))}
       </div>

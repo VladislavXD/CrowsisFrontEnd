@@ -7,10 +7,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import ShowAdd from '../showCase/showAdd';
 import ShowRemove from '../showCase/showRemove';
 import { addToBasket } from '../../redux/slices/BasketSlice';
+import { Link, useParams } from 'react-router-dom';
 
 
 
-const ProductCard = ({ id, img, title, price, discount }) => {
+const ProductCard = ({ id, img, title, price, discount, category, catalog }) => {
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favorites.list);
   const basket = useSelector((state) => state.basket.list);
@@ -39,7 +40,7 @@ const ProductCard = ({ id, img, title, price, discount }) => {
       dispatch(addToFavorites({ id, img, title, price, discount }));
     }
 
-    setOnLike(!onLike);
+
     setOnShowFavorite(true);
 
     setTimeout(() => {
@@ -48,10 +49,11 @@ const ProductCard = ({ id, img, title, price, discount }) => {
   };
   //onShowNotification
   const [onShowFavorite, setOnShowFavorite] = useState(false);
-  const [onLike, setOnLike] = useState(false);
   const [onShowBasket, setOnShowbasket] = useState('');
 
 
+
+  
   //Notification
   const FavoriteAdd = 'Добавленно в избранное';
   const FavoriteRemove = 'Удалено из избранного';
@@ -64,17 +66,17 @@ const ProductCard = ({ id, img, title, price, discount }) => {
 
       <div className={`${styled.card} `}>
         <div className={styled.card__top}>
-          <a href="#" className={styled.card__image}>
+          <Link  to={`/catalog/${catalog}/${category}/${id}`}  className={styled.card__image}>
             <img
               src={img}
-              alt="product"
+              alt={title}
             />
-          </a>
+          </Link>
           <GoHeartFill
-            className={`${styled.heart} ${id} ${favorites.some((product) => product.id === id) && styled.active} ${onLike ? 'active' : ''}`}
+            className={`${styled.heart} ${id} ${favorites.some((product) => product.id === id) && styled.active}`}
             onClick={handleClickFavorite}
           />
-          <heart />
+          
 
           <div className={styled.card__label}>-{discount}%</div>
         </div>
