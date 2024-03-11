@@ -9,14 +9,31 @@ const basketSlice = createSlice({
     },
     reducers: {
         addToBasket: (state, action) => {
-            // const findItem = state.list.find((obj) => obj.id == action.payload.id)
-            state.list.push(action.payload);
-            state.totalPrice = state.list.reduce((sum, obj)=>{
-                return obj.price + sum;
-            }, 0);
+            const { id, img, title, price, discount, count } = action.payload;
+            const existingProductIndex = state.list.findIndex(product => product.id === id);
+          
+            if (existingProductIndex !== -1) {
+              // Если товар уже есть в корзине, обновляем его количество
+              state.list[existingProductIndex].count += count;
+            } else {
+              // Иначе добавляем новый товар в корзину
+              state.list.push({ id, img, title, price, discount, count });
+            }
+          
+            // Посчитаем общую стоимость корзины
+            state.totalPrice = state.list.reduce((sum, product) => sum + product.price * product.count, 0);
+          
+            localStorage.setItem('Basket', JSON.stringify(state.list));
+            localStorage.setItem('totalPrice', JSON.stringify(state.totalPrice));
+          },
+          
+        
+        itemMinus: (state, action)=>{
+            const findItem = state.list.find((obj) => obj.id == action.payload.id)
 
-            localStorage.setItem('Basket', JSON.stringify(state.list))
-            localStorage.setItem('totalPrice', JSON.stringify(state.totalPrice))
+            if(findItem){
+                findItem.count--
+            }
         },
         
         removeToBasket: (state, action) => {
@@ -32,7 +49,7 @@ const basketSlice = createSlice({
 
 })
 
-export const { addToBasket, removeToBasket } = basketSlice.actions
+export const { addToBasket, removeToBasket, itemMinus } = basketSlice.actions
 export const selectTotalPrice = (state) => state.basketSlice.totalPrice
 
 export default basketSlice.reducer

@@ -17,6 +17,7 @@ import { Thumbs } from 'swiper/modules';
 import SwiperCore from 'swiper';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToFavorites, removeFromFavorites } from '../../redux/slices/FavoriteSlice';
+import { addToBasket, itemMinus } from '../../redux/slices/BasketSlice';
 SwiperCore.use([FreeMode, Navigation, Thumbs]);
 
 
@@ -26,36 +27,48 @@ const Product = () => {
   const [loading, setLoading] = useState();
 
   const dispatch = useDispatch();
-  const favorites = useSelector((state) => state.favorites.list);
+  const favorites = useSelector((state) => state.favorites.list);//получения данных из state  
+  const basket = useSelector((state) => state.basket.list);
+
+
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [clickSlide, setClickSlide] = useState(0) //состояние для слайдера
+
+
 
   const [selectedSize, setSelectedSize] = useState('');
   const [quantity, setQuantity] = useState(0);
 
-
-
+  const [itemCount, setItemCount] = useState(1);
 
   useEffect(() => {
     axios.get(`https://65c11632dc74300bce8d48c0.mockapi.io/CrowsisProduct/?id=${productId}`)
-      .then(({ data }) => setProduct(data))
+      .then(({ data }) => {
+        setProduct(data)
+        if (data.length > 0 && data[0].sizes.length > 0) {
+          setSelectedSize(data[0].sizes[0].size);
+          //установка значиния по умолчанию для пункта наличия и размера
+          setQuantity(data[0].sizes[0].isStock);
+        }
+      })
       .catch((err) => console.log(err))
   }, [])
 
 
 
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const [clickSlide, setClickSlide] = useState(0)
 
   const handleSizeChange = (size) => {
     setSelectedSize(size);
-    // Найдем объект размера с выбранным размером
-    const selectedSizeObject = product.find(s => s.sizes.some(d => d.size === size))
 
-    // Получим количество продукта для выбранного размера
-    const count = product.find(s=> s.sizes).sizes.find(s=> s.isStock);
+    const selectedSizeObject = product.find(s => s.sizes.find(d => d.size === size));
 
-    const stockQuantity = selectedSizeObject ? count.isStock : 0;
-    setQuantity(stockQuantity);
-
+    if (selectedSizeObject) {
+      setQuantity(selectedSizeObject.sizes.find(d => d.size === size).isStock);
+    }
+    else {
+      setQuantity(0);
+    }
+    //функция для изменения колличеста значиния при выборе размера
   };
 
   return (
@@ -65,6 +78,8 @@ const Product = () => {
         product.map((item, i) => {
 
           const isProductInFavorites = favorites.some((product) => product.id === item.id);
+          const isProductInBasket = basket.some((product) => product.id === item.id);
+
           const handleClickFavorite = () => {
             if (isProductInFavorites) {
               dispatch(removeFromFavorites(item.id));
@@ -74,10 +89,66 @@ const Product = () => {
                 img: item.img,
                 title: item.title,
                 price: item.price,
-                discount: item.discount
+                discount: item.discount,
               }));
             }
           };
+          const handleClickBasket = () => {
+            if (!isProductInBasket) {
+              dispatch(addToBasket({
+                id: item.id,
+                img: item.img, 
+                title: item.title, 
+                price: item.price,
+                discount: item.discount,
+                count: itemCount,
+              }));
+            } else {
+              const updatedBasket = basket.map(product => {
+                if (product.id === item.id) {
+                  return {
+                    ...product,
+                    count: product.count + itemCount,
+                  };
+                }
+                return product;
+              });
+          
+              dispatch({ type: 'Basket/updateBasket', payload: updatedBasket });
+            }
+          }
+          
+          
+          
+          
+
+
+
+          const onClickPlus = () => {
+            setItemCount(itemCount + 1);
+          }
+
+          const onClickMinus = () => {
+            if (itemCount > 1) {
+              setItemCount(itemCount - 1);
+            }
+          }
+
+        
+          // const onClickPlus = () => {
+          //   dispatch(
+          //     addToBasket({
+          //       id: item.id
+          //     })
+          //   )
+          // }
+          // const onClickMinus = () => {
+          //   dispatch(
+          //     itemMinus({
+          //       id: item.id
+          //     })
+          //   )
+          // }
 
           return (
             <>
@@ -121,6 +192,7 @@ const Product = () => {
                         <div className="sizes_wrapper">
 
                           {item.sizes.map((size, i) => (
+
                             <div className={`size ${selectedSize === size.size ? 'active_size' : ''}`} key={i} onClick={() => handleSizeChange(size.size)}>
                               {size.size}
                             </div>
@@ -130,12 +202,12 @@ const Product = () => {
                       <div className="stock">В наличии: <span className="stock_count">{quantity}</span> шт</div>
                       <div className="add_to_cart">
                         <div className="product_counter">
-                          <span className='count_minus'>-</span>
-                          <span className='count'>1</span>
-                          <span className='count_plus'>+</span>
+                          <span className='count_minus' onClick={onClickMinus}>-</span>
+                          <span className='count'>{itemCount}</span>
+                          <span className='count_plus' onClick={onClickPlus}>+</span>
                           шт
                         </div>
-                        <div className="add_cart"><BsCart4 />В корзину</div>
+                        <div className="add_cart" onClick={handleClickBasket}><BsCart4 />В корзину</div>
                       </div>
                     </div>
                   </div>
@@ -153,3 +225,4 @@ const Product = () => {
 }
 
 export default Product
+
