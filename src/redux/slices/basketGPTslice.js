@@ -9,23 +9,24 @@ const basketSlice = createSlice({
     },
     reducers: {
         addToBasket: (state, action) => {
-            const findItem = state.list.find((obj) => obj.id == action.payload.id)
-
-            if(findItem){
-                findItem.count++
-            }else{
-                state.list.push({...action.payload, count: 1,});
+            const { id, img, title, price, discount, count } = action.payload;
+            const existingProductIndex = state.list.findIndex(product => product.id === id);
+          
+            if (existingProductIndex !== -1) {
+              // Если товар уже есть в корзине, обновляем его количество
+              state.list[existingProductIndex].count += count;
+            } else {
+              // Иначе добавляем новый товар в корзину
+              state.list.push({ id, img, title, price, discount, count });
             }
-
-
-            
-            state.totalPrice = state.list.reduce((sum, obj)=>{
-                return obj.price + sum;
-            }, 0);
-
-            localStorage.setItem('Basket', JSON.stringify(state.list))
-            localStorage.setItem('totalPrice', JSON.stringify(state.totalPrice))
-        },
+          
+            // Посчитаем общую стоимость корзины
+            state.totalPrice = state.list.reduce((sum, product) => (product.price * product.count) + sum, 0);
+          
+            localStorage.setItem('Basket', JSON.stringify(state.list));
+            localStorage.setItem('totalPrice', JSON.stringify(state.totalPrice));
+          },
+          
         
         itemMinus: (state, action)=>{
             const findItem = state.list.find((obj) => obj.id == action.payload.id)
@@ -39,7 +40,7 @@ const basketSlice = createSlice({
             const removedProduct = state.list.find(product => product.id === action.payload);
 
             state.list = state.list.filter(product => product.id !== action.payload);
-            state.totalPrice -= removedProduct.price;   
+            state.totalPrice -= removedProduct.totalPrice;   
 
             localStorage.setItem('Basket', JSON.stringify(state.list))
             localStorage.setItem('totalPrice', JSON.stringify(state.totalPrice))
