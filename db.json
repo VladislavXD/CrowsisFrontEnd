@@ -1,7 +1,7 @@
 {
   "catalog": [
     {
-      "id": 10,
+      "id": 1,
       "img": [
         "https://www.jackmenn.ru/wp-content/uploads/2021/12/kupit-muzhskoe-palto-679x1024.jpg.webp",
         "",
@@ -34,7 +34,7 @@
       "gender": "unisex"
     },
     {
-      "id": 11,
+      "id": 2,
       "img": [
         "https://fabricafutbolok.ru/wp-content/uploads/tolstovka-amor-amor-amor-molochnaya.jpg",
         "",
@@ -67,7 +67,7 @@
       "gender": "woman"
     },
     {
-      "id": 12,
+      "id": 3,
       "img": [
         "https://cdn.finnflare.com/upload/resize_cache/full_size/FAD/202/800_1200_2/FAD21115_202_50.jpg?cdn=1687288192",
         "",
@@ -100,7 +100,7 @@
       "gender": "woman"
     },
     {
-      "id": 13,
+      "id": 4,
       "img": [
         "https://basket-10.wbbasket.ru/vol1446/part144652/144652604/images/c516x688/1.webp",
         "",
@@ -133,7 +133,7 @@
       "gender": "man"
     },
     {
-      "id": 14,
+      "id": 5,
       "img": [
         "https://example.com/blouse.jpg",
         "",
@@ -166,7 +166,7 @@
       "gender": "woman"
     },
     {
-      "id": 15,
+      "id": 6,
       "img": [
         "https://example.com/jeans.jpg",
         "",
@@ -199,7 +199,7 @@
       "gender": "woman"
     },
     {
-      "id": 16,
+      "id": 7,
       "img": [
         "https://example.com/jacket.jpg",
         "",
@@ -232,7 +232,7 @@
       "gender": "woman"
     },
     {
-      "id": 17,
+      "id": 8,
       "img": [
         "https://example.com/shorts.jpg",
         "",
@@ -249,7 +249,7 @@
       "gender": "unisex"
     },
     {
-      "id": 18,
+      "id": 9,
       "img": [
         "https://example.com/scarf.jpg",
         "",
