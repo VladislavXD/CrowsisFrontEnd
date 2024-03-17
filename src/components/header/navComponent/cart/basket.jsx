@@ -15,7 +15,7 @@ const Basket = () => {
         <>
 
             <div className="basket">
-                <div class="dropdown">
+                <div class={style.dropdown}>
                     <a class={`basket_link ${cartOpen && 'active'}`} onClick={() => { setCartOpen(cartOpen = !cartOpen) }} href="#" >
                         <FaShoppingCart className={`${cartOpen && 'basket_active'} basket_fav`} />
                         {
