@@ -92,9 +92,7 @@ ul {
     
 }
 
-.dropdown{
-    height: 100% !important;
-}
+
 
 .basket_active {
     transform: scale(1.3);
