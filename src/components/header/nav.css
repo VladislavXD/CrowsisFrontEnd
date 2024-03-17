@@ -89,6 +89,10 @@ ul {
     color: black;
     transition: .3s;
     position: relative;
+    
+}
+
+.dropdown{
     height: 100%;
 }
 
