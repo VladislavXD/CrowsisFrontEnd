@@ -31,7 +31,7 @@ const ProductCatalog = () => {
       <div className={style.catalog_title}>
         <div className={style.name}>{`Мужская ${CatalogList.find(item => item.link === `/catalog/${catalog}`).name}`}</div>
       </div>
-      <div className={style.catalog_category}>
+      <div className={style.catalog_category}>  
         {CatalogList.find(item => item.link === `/catalog/${catalog}`).categoris.map((category, i) => (
           <Link key={i}
             to={`/catalog/${catalog}/${category.en}`}
@@ -46,7 +46,7 @@ const ProductCatalog = () => {
           .filter(item => item.catalog === catalog && (selectedCategory === 'all' || item.category === selectedCategory))
           .map((product, index) => (
             <ProductCard
-              id={index}
+              id={index + 1}
               key={index}
               img={product.img}
               title={product.title.trim()}

@@ -6,7 +6,7 @@
     align-items: center;
     flex-direction: column;
     font-weight: 300;
-    
+    height: 100%;
 }
 .favorite{
     position: relative;

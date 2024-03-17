@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from './styled.module.css';
 import { GoHeartFill } from "react-icons/go";
-import { FaRegHeart } from "react-icons/fa";
+// import { FaRegHeart } from "react-icons/fa
 import { addToFavorites, removeFromFavorites } from '../../redux/slices/FavoriteSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import ShowAdd from '../showCase/showAdd';
@@ -61,7 +61,7 @@ const ProductCard = ({ id, img, title, price, discount, category, catalog }) => 
   const priceDiscount = price - (price / 100 * discount);
   return (
     <>
-      {onShowFavorite &&  (isProductInFavorites ? <ShowAdd props={FavoriteAdd}/> : <ShowRemove props={FavoriteRemove}/>)}
+      {onShowFavorite &&  (isProductInFavorites > 0 ? <ShowAdd props={FavoriteAdd}/> : <ShowRemove props={FavoriteRemove}/>)}
       {onShowBasket && (<ShowAdd props={onShowBasket}/>)}
 
       <div className={`${styled.card} `}>

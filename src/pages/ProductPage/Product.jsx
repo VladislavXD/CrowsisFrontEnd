@@ -152,7 +152,7 @@ const Product = () => {
 
           return (
             <>
-              <h1 className="product_title">{item.title == 'Шорты' ? ('Мужские') : ('Мужкое')} {item.title}</h1>
+              <h1 className="product_title">{item.title == 'Шорты' ? ('Мужские') : ('Мужское')} {item.title}</h1>
               <div className="product-card">
                 <div className="product">
 

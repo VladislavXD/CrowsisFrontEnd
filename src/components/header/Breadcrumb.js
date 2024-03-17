@@ -2,11 +2,33 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import HomeIcon from "@mui/icons-material/Home";
+import axios from "axios";
 
-function handleClick(event) {
-  event.preventDefault();
-  console.info("Вы нажали на breadcrumb.");
-}
+// Объект соответствия маршрутов и текста для хлебных крошек
+
+
+axios.get('https://65c11632dc74300bce8d48c0.mockapi.io/CrowsisProduct')
+
+const breadcrumbTexts = {
+  "/": "Главная",
+  "/favorites": "Избранное",
+  "/catalog": "Каталог", 
+  "/catalog/verkhyayaOdejda": "Верхняя одежда",
+  "/catalog/obuv": "Обувь",
+  "/catalog/futbolki": 'Футболки',
+  "/catalog/aksesuari": "Аксесуары",
+  "/catalog/shorts": "Шорты",
+  "/catalog/djinsi": 'Джинсы',
+  "/catalog/rubashki": "Рубашки",
+  "/catalog/pidjaki": "Пиджаки",
+  "/catalog/tolstovki": 'Толстовки',
+  "/catalog/djemperiCardigan" : 'Джемперы и кардиган',
+  '/Basket': "Корзина",
+  "/auth": 'Авторизация',
+  '/Register' : 'Регистрация'
+
+  // Добавьте другие соответствия маршрутов и текста по необходимости
+};
 
 const BreadcrumbsComponent = () => {
   const location = useLocation();
@@ -19,7 +41,7 @@ const BreadcrumbsComponent = () => {
   let breadcrumbsPath = "";
 
   return (
-    <div className="breadcrembs" role="presentation" onClick={handleClick}>
+    <div className="breadcrembs" role="presentation" >
       <Breadcrumbs aria-label="breadcrumb">
         <Link
           underline="hover"
@@ -37,10 +59,10 @@ const BreadcrumbsComponent = () => {
           return (
             <li key={path}>
               {isLast ? (
-                <span>{path}</span>
+                <span>{breadcrumbTexts[breadcrumbsPath] || path}</span>
               ) : (
                 <span>
-                  <Link to={breadcrumbsPath}>{path}</Link>
+                  <Link to={breadcrumbsPath}>{breadcrumbTexts[breadcrumbsPath] || path}</Link>
                 </span>
               )}
             </li>
