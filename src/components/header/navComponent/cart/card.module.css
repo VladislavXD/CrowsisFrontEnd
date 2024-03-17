@@ -54,6 +54,9 @@
 .dropdown{
     height: 100% ;
 }
+.basket_link{
+    height: 100%;
+}
 
 .cart_price {
     color: blue;

@@ -15,8 +15,8 @@ const Basket = () => {
         <>
 
             <div className="basket">
-                <div class={style.dropdown}>
-                    <a class={`basket_link ${cartOpen && 'active'}`} onClick={() => { setCartOpen(cartOpen = !cartOpen) }} href="#" >
+                <div className={style.dropdown}>
+                    <a className={`${style.basket_link} ${cartOpen && 'active'}`} onClick={() => { setCartOpen(cartOpen = !cartOpen) }} href="#" >
                         <FaShoppingCart className={`${cartOpen && 'basket_active'} basket_fav`} />
                         {
                             basketProducts.length > 0 ? <span className='num'>{basketProducts.length}</span> :
