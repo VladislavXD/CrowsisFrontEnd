@@ -22,20 +22,20 @@ const ProductShop = ({ searchValue }) => {
   const [products, setProducts] = useState([]);
 
 
-  useEffect( ()=>{
+  useEffect(() => {
     setIsLoad(true)
-      axios.get('https://65c11632dc74300bce8d48c0.mockapi.io/CrowsisProduct').
-      then(({data})=>{
+    axios.get('https://65c11632dc74300bce8d48c0.mockapi.io/CrowsisProduct').
+      then(({ data }) => {
         setProducts(data)
       })
-      .then(()=> setIsLoad(false))
-      .catch((err)=>{
+      .then(() => setIsLoad(false))
+      .catch((err) => {
         console.log(err)
-        
+
       })
 
-      
-       
+
+
   }, [])
 
   //фильтрация продукта для поискового запроса
@@ -48,7 +48,7 @@ const ProductShop = ({ searchValue }) => {
   //   return a.title.localeCompare(b.title);
   // });
 
- 
+
 
   return (
     <>
@@ -57,7 +57,7 @@ const ProductShop = ({ searchValue }) => {
 
         modules={[Pagination, Autoplay]}
         className="mySwiper"
-      > 
+      >
         {ProductSlider.map((productSwipe) => {
           return (
             <>
@@ -78,38 +78,48 @@ const ProductShop = ({ searchValue }) => {
         })}
       </Swiper>
 
-        
 
-      <div className={styles.product_wraper}>
-        <div className={styles.product}>
-          {//вывод preload при отсуствие товара
-            isLoad ? (
-              [...new Array(7)].map((_, i) => <CardLoader key={i} />)
-            ) : (
-              //проверка наличия товаров на странице
-              filtered.length > 0 ? (
-              filtered.map((item, index) => {
-                return (
-                  <ProductCard
-                    key={index}
-                    id={item.id}
-                    img={item.img}
-                    title={item.title.trim()}
-                    price={item.price}
-                    discount={item.discount}
-                    catalog={item.catalog}
-                    category={item.category}
-                  />
-                );
-              })
+
+      <div className="product">
+
+        <div className="product_card">
+          <div className="product_card-ite">
+            
+          </div>
+        </div>
+
+        <div className={styles.product_wraper}>
+
+          <div className={styles.product}>
+            {//вывод preload при отсуствие товара
+              isLoad ? (
+                [...new Array(7)].map((_, i) => <CardLoader key={i} />)
               ) : (
-                <ShowChek />
+                //проверка наличия товаров на странице
+                filtered.length > 0 ? (
+                  filtered.map((item, index) => {
+                    return (
+                      <ProductCard
+                        key={index}
+                        id={item.id}
+                        img={item.img}
+                        title={item.title.trim()}
+                        price={item.price}
+                        discount={item.discount}
+                        catalog={item.catalog}
+                        category={item.category}
+                      />
+                    );
+                  })
+                ) : (
+                  <ShowChek />
+                )
               )
-            )
-          }
+            }
+          </div>
         </div>
       </div>
-      <productCardClone/>
+
     </>
   );
 };

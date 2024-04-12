@@ -12,7 +12,6 @@ const ProductCatalog = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const urlParams = useParams()
-  console.log(urlParams);
 
   const selectedCategory = category || 'all'; // Если категория не указана, выбираем все товары
 

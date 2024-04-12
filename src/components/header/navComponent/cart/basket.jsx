@@ -38,7 +38,7 @@ const Basket = () => {
                                                     key={product.id}
                                                     title={product.title}
                                                     imageUrl={product.img}
-                                                    price={product.price}
+                                                    price={product.price}   
                                                 />
                                             )
                                         })
