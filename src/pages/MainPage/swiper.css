@@ -72,3 +72,25 @@
     /* чтобы изображение занимало всю высоту и подстраивалось под ширину */
     background-position: center;
 }
+
+
+@media(max-Width: 920px){
+    .promo_title{
+        font-size: 70px;
+    }
+}
+@media(max-Width: 720px){
+    .promo_title{
+        font-size: 50px;
+    }
+}
+@media(max-Width: 480px){
+    .promo_title{
+        font-size: 40px;
+    }
+}
+@media(max-Width: 350px){
+    .promo_title{
+        font-size: 30px;
+    }
+}

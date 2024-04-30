@@ -10,13 +10,20 @@ import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import ProductSlider from "../../DataListContent/Data.productSlider";
-
-import productCardClone from "../../components/CardBlock/productCardClone";
+import { CiBadgeDollar } from "react-icons/ci";
 import axios from "axios";
+//icon
 import { Link } from "react-router-dom";
+import { BsBoxSeam } from "react-icons/bs";
+import { RiMoneyDollarCircleLine } from "react-icons/ri";
+import { PiTruck } from "react-icons/pi";
+import { LuPackageCheck } from "react-icons/lu";
+import CategorySwiper from "../../components/swipers/CategorySwiper/CategorySwiper";
+
+
 
 const ProductShop = ({ searchValue }) => {
-  //Создание loadera
+  //Создание loadera  
   const [isLoad, setIsLoad] = useState(true);
 
   const [products, setProducts] = useState([]);
@@ -62,7 +69,7 @@ const ProductShop = ({ searchValue }) => {
           return (
             <>
               <SwiperSlide>
-                <img src={productSwipe.image} />
+                <img className={styles.swiper_promo_img} src={productSwipe.image} />
                 <div className="swiper_promo">
                   <span className="promo_title">{productSwipe.title}</span>
                   <button className="promo_btn">
@@ -80,14 +87,40 @@ const ProductShop = ({ searchValue }) => {
 
 
 
-      <div className="product">
+      <div className={styles.product_card}>
+        <div className={styles.product_card_wrapper}>
+          <div className={styles.card_top_item}>
+            <div className={styles.card_item_icon}><CiBadgeDollar className={styles.card_icon} /></div>
+            <div className={styles.card_item_text}>Покупка товаров в рассрочку и без комиссии </div>
+          </div>
+          <div className={styles.card_top_item}>
+            <div className={styles.card_item_icon}><BsBoxSeam className={styles.card_icon} /></div>
+            <div className={styles.card_item_text}>Легкий возврат товаров </div>
+          </div>
+          <div className={styles.card_top_item}>
+            <div className={styles.card_item_icon}><RiMoneyDollarCircleLine className={styles.card_icon} /></div>
+            <div className={styles.card_item_text}>Бесплатная доставка от 400 000 сум  </div>
+          </div>
+          <div className={styles.card_top_item}>
+            <div className={styles.card_item_icon}><PiTruck className={styles.card_icon} /></div>
+            <div className={styles.card_item_text}>Доставка по всему Узбекистану  </div>
+          </div>
+          <div className={styles.card_top_item}>
+            <div className={styles.card_item_icon}><LuPackageCheck className={styles.card_icon} /></div>
+            <div className={styles.card_item_text}>Доступные цены </div>
+          </div>
+        </div>
+      </div>
 
-        <div className="product_card">
-          <div className="product_card-ite">
-            
+
+        <div className={styles.product_category_slider}>
+          <div className={styles.category_slider_wrapper}>
+            <CategorySwiper/>
           </div>
         </div>
 
+
+      <div className={styles.product}>
         <div className={styles.product_wraper}>
 
           <div className={styles.product}>
