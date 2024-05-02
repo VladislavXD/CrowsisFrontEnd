@@ -74,6 +74,34 @@
 
 
 
+@media (max-width: 992px) {
+    .card_top_item {
+      width: calc(50% - 10px);
+    }
+    .product_card_wrapper{
+        gap: 20px;
+    }
+
+  }
+
+  @media (max-width: 576px) {
+    .card_top_item {
+      width: calc(50% - 10px);
+      padding: 12px;
+      flex-direction: row;
+      min-width: auto;
+    }
+    .card_icon{
+        width: 50px;
+    }
+    .product_card{
+        padding: 40px 11px;
+    }
+    .card_item_text{
+        font-size: 11px;
+    }
+  }
+
 @media (max-width: 720px) {
     .test {
         display: none;
@@ -98,10 +126,6 @@
         object-fit: contain;
     }
 }
-
-
-
-
 
 
 @media (max-width: 991px) {
