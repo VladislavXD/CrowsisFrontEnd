@@ -87,7 +87,7 @@ const Nav = ({ setSearchValue }) => {
           </header>
 
           <SubHeader />
-          <p></p>
+
         </>
       ) : (
         <>
