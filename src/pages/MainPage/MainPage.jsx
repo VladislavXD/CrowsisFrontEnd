@@ -85,8 +85,6 @@ const ProductShop = ({ searchValue }) => {
         })}
       </Swiper>
 
-
-
       <div className={styles.product_card}>
         <div className={styles.product_card_wrapper}>
           <div className={styles.card_top_item}>
@@ -111,7 +109,6 @@ const ProductShop = ({ searchValue }) => {
           </div>
         </div>
       </div>
-
 
         <div className={styles.product_category_slider}>
           <div className={styles.category_slider_wrapper}>
