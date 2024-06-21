@@ -44,7 +44,6 @@ const Nav = ({ setSearchValue }) => {
           <nav className="nav_bg"></nav>
           <header className="header navbar navbar-expand-lg bg-body-tertiary">
             <header className="header_top container-fluid">
-              
               <div className="header_logo">
                 <a href="">
                   <img src={logo} alt="" className="logo" />
@@ -88,6 +87,7 @@ const Nav = ({ setSearchValue }) => {
           </header>
 
           <SubHeader />
+          <p></p>
         </>
       ) : (
         <>
